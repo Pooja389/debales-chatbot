@@ -26,7 +26,7 @@ git clone https://github.com/Pooja389/debales-chatbot
 
 ```
 ```bash
-cd debales_ai
+cd debales-chatbot
 ```
 ```bash
 pip install -r requirements.txt
