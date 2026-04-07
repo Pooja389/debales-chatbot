@@ -1,0 +1,6 @@
+numpy
+faiss-cpu
+langchain-core==0.1.23
+langchain-community==0.0.20
+python-dotenv
+serpapi
