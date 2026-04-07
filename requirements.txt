@@ -1,6 +1,6 @@
 numpy
 faiss-cpu
-langchain-core==0.1.23
-langchain-community==0.0.20
+langchain
+langchain-community
 python-dotenv
-serpapi
+google-search-results
