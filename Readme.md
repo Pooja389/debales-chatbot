@@ -1,26 +1,38 @@
 # Debales AI Assistant
 
-🤖 **Debales AI Assistant** is a simple chatbot using a **RAG (Retrieval-Augmented Generation) system**. It retrieves relevant information from local documents in real-time and answers user queries. Queries unrelated to Debales AI are handled via a mock SERP system.  
+🤖 **Debales AI Assistant** is a simple chatbot that combines **RAG (Retrieval-Augmented Generation)** and **SERP-based search**. It retrieves relevant information from local documents for Debales-related queries and uses real-time web search for general queries, providing accurate and context-aware responses.
 
 ---
 
 ## Features
 
+- **Hybrid RAG + SERP system**: Uses RAG for document-based queries and SERP for real-time web search.  
 - **RAG-based retrieval**: Fetches relevant information from `.txt` files in the `docs/` folder.  
-- **Offline/Mock mode**: Fully works without OpenAI API or paid services.  
-- **Keyword detection**: Queries about "Debales" or "Debales AI" are routed to RAG; others go to SERP.  
-- **Document inspection**: Retrieved documents are printed in the terminal.  
-
+- **SERP integration**: Handles general queries using search results for up-to-date information.  
+- **Offline/Mock mode**: Can run without OpenAI or paid APIs (RAG works locally).  
+- **Keyword-based routing**: Queries related to "Debales" are routed to RAG; others go to SERP.  
+- **Document inspection**: Retrieved documents are displayed in the terminal for transparency.  
 ---
+## Note
 
+This project is developed and tested using **Python 3.11**.  
+It is recommended to use Python 3.11 for compatibility, as some dependencies may not work properly with newer versions (e.g., Python 3.13+).
 ## Setup
 
-1. Clone the repository:
+Steps to run:
 
 ```bash
 git clone https://github.com/Pooja389/debales-chatbot
-cd debales_ai
 
+```
+```bash
+cd debales_ai
+```
+```bash
+pip install -r requirements.txt
+```
+```bash
+python main.py
 ```
 
 ## Example Usage
