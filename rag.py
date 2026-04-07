@@ -3,17 +3,14 @@ import os
 import numpy as np
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
+from langchain_core.embeddings import Embeddings
 
 # ----------------------------- Configuration ---------------------------------
 USE_MOCK = True  # Always True: fully offline, no OpenAI
 
 # ----------------------------- Mock Embeddings --------------------------------
-class MockEmbeddings:
-    def __call__(self, texts):
-        return self.embed_documents(texts)
-
+class MockEmbeddings(Embeddings):
     def embed_documents(self, texts):
-        # 1536-d random vectors for each document
         return [np.random.rand(1536).tolist() for _ in texts]
 
     def embed_query(self, text):
@@ -56,27 +53,23 @@ def create_vectorstore(folder="docs"):
     return db, embeddings
 
 # ----------------------------- Query Vectorstore -----------------------------
+
 def rag_answer(db, embeddings, query, k=3):
-    """
-    Query the FAISS vectorstore and return top-k documents.
-    """
     if not db:
         print("RAG vectorstore is empty!")
         return []
-    
-   
-    docs = db.similarity_search(query, k=k)
-  
 
-    if not docs:
+    # Unpack (document, score) tuples safely
+    results = db.similarity_search_with_score(query, k=k)
+
+    if not results:
         print("No relevant documents found.")
         return []
 
-    # Print retrieved docs directly
-    
     print("\n--- Retrieved Documents ---")
-    for i, doc in enumerate(docs):
-        print(f"Doc {i+1}: {doc.page_content[:500]}...\n")  # first 500 chars
+    for i, (doc, score) in enumerate(results):
+        print(f"Doc {i+1} (score: {score:.4f}): {doc.page_content[:500]}...\n")
     print("--------------------------\n")
 
+    docs = [doc for doc, score in results]
     return docs
