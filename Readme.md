@@ -21,18 +21,18 @@ It is recommended to use Python 3.11 for compatibility, as some dependencies may
 
 Steps to run:
 
-1.```bash
+```bash
 git clone https://github.com/Pooja389/debales-chatbot
 
 ```
-2.```bash
+```bash
 cd debales-chatbot
 ```
-3. imp : create a .env file in debales-chatbot folder and paste your serp_api --> SERP_API_KEY = 'Your_key'
-4. ```bash
+  imp : create a .env file in debales-chatbot folder and paste your serp_api --> SERP_API_KEY = 'Your_key'
+```bash
 pip install -r requirements.txt
 ```
-5. ```bash
+```bash
 python main.py
 ```
 
