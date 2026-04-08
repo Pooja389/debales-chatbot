@@ -28,6 +28,7 @@ git clone https://github.com/Pooja389/debales-chatbot
 ```bash
 cd debales-chatbot
 ```
+imp : create a .env file in debales-chatbot folder and paste your serp_api --> SERP_API_KEY = 'Your_key'
 ```bash
 pip install -r requirements.txt
 ```
